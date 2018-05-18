@@ -1,0 +1,29 @@
+digraph {
+compound=true;
+subgraph cluster_StateMachine {
+label="com.duan2ping.squirrelfoundation.MyStateMachine";
+B [label="B"];
+subgraph cluster_A {
+label="A";
+Achild1 [label="Achild1"];
+Achild2 [label="Achild2"];
+}
+subgraph cluster_C {
+label="C";
+subgraph cluster_C1 {
+label="C1";
+C1Child1 [label="C1Child1"];
+C1Child2 [label="C1Child2"];
+}
+subgraph cluster_C2 {
+label="C2";
+C2Child1 [label="C2Child1"];
+C2Child2 [label="C2Child2"];
+}
+}
+
+B -> C1Child1 [lhead="cluster_C", label="ToC"];
+Achild1 -> B [ltail="cluster_A", label="ToB"];
+Achild1 -> Achild2 [ label="ToAchild2"];
+C1Child1 -> C1Child2 [ label="ToC1Child2"];
+C2Child1 -> C2Child2 [ label="ToC2Child2"];}}
